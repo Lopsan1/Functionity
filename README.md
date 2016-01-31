@@ -1,4 +1,4 @@
-# FUNCIONITY
+# FUNCTIONITY
 
 #Características:
 *Añade los asteriscos en el caso de querer indicar multiplicación cuando se tienen dos paréntesis juntos o una variable y una constante junta.
@@ -13,6 +13,8 @@
 
 #Uso:
 Abrir el símbolo de sistema, situarse en la carpeta raíz del proyecto y escribir npm start, en la línea de comando.
+
+Situese en su navegador y escriba la URL "localhost:3000"
 
 #Librerias Usadas:
 *Plotly.js
