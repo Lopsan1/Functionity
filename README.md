@@ -15,10 +15,12 @@
 
 - $ bower install --save  https://github.com/Lopsan1/Functionity
 
-#Used Bookstores:
+#References:
 *Plotly.js
 
 *Node.js
+
+*BigNumber.js
 
 *Codrops
 
