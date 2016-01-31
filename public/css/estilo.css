@@ -1,0 +1,190 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300);
+
+body { 
+  font-family: 'Muli', sans-serif;
+  background-image: url("http://wallpaperusia.com/wp-content/uploads/2015/09/minimalist_desktop_wallpaper_63.jpg");
+/* STRUCTURE */
+}
+#pagewrap {
+	padding: 5px;
+	width: 960px;
+	margin: 20px auto;
+	color: rgba(7, 20, 28, 0.9);
+}
+#titulo{
+	color: rgba(255, 255, 255, 0.9);
+	font-family: 'Muli', sans-serif;
+}
+header {
+	background-color: rgba(14, 20, 30, 0.3);
+	color: rgba(255, 255, 255, 0.9);
+	height: 100px;
+	padding: 0 15px;
+}
+#content {
+	color: rgba(7, 20, 28, 0.9);
+	width: 290px;
+	float: left;
+	padding: 5px 15px;
+}
+
+#middle {
+	background-color:rgba(247, 247, 249, 1);
+	width: 294px; /* Account for margins + border values */
+	float: left;
+	padding: 5px 15px;
+	margin: 0px 5px 5px 5px;
+	color: rgba(7, 20, 28, 0.9);
+}
+
+#sidebar {
+	width: 270px;
+	padding: 5px 15px;
+	float: left;
+	color: rgba(7, 20, 28, 0.9);
+}
+footer {
+	background-color: rgba(14, 20, 30, 0.6);
+	clear: both;
+	padding: 0 15px;
+}
+#distancia{
+	background-color: #A9F5E7;
+    color: rgba(0, 35, 39, 0.9);
+}
+#tiempo{
+	background-color: #A9F5E7;
+    color: rgba(0, 35, 39, 0.9);
+}
+#velocidad{
+	background-color: rgba(131, 129, 127, 1);
+    color: rgba(248, 248, 249, 1);
+}
+.grisesito{
+	color: rgba(131, 129, 127, 1);
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+  li {
+    display: inline-block;
+    width: 30%;
+    font-size:125%;
+  }
+a{
+	font-size:125%;
+}
+a:link {
+    color: rgba(221, 233, 234, 0.9);
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: rgba(218, 255, 233, 0.9);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgba(218, 255, 130, 0.9);
+}
+
+/* selected link */
+a:active {
+    
+color: rgba(218, 255, 31, 1);
+}
+
+@media screen and (min-width: 20em) {
+
+  li {
+    width: 33.33333%;
+  }
+
+}
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#pagewrap {
+		width: 94%;
+	}
+	#content {
+		width: 41%;
+		padding: 1% 4%;
+	}
+	#middle {
+		width: 41%;
+		padding: 1% 4%;
+		margin: 0px 0px 5px 5px;
+		float: right;
+	}
+	
+	#sidebar {
+		clear: both;
+		padding: 1% 4%;
+		width: auto;
+		float: none;
+	}
+
+	header, footer {
+		padding: 1% 4%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+	#content {
+		width: auto;
+		float: none;
+	}
+	
+	#middle {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 2em;
+	}
+	#sidebar {
+		display: none;
+	}
+
+}
+
+
+#content {
+	background: #f8f8f8;
+}
+#sidebar {
+	background: #f0efef;
+}
+header, #content, #middle, #sidebar {
+	margin-bottom: 5px;
+}
+
+#pagewrap, header, #content, #middle, #sidebar, footer {
+	border: solid 1px #ccc;
+}

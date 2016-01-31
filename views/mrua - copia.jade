@@ -1,0 +1,142 @@
+html.no-js(lang='en')
+  head
+    title= Fisica
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='jqwery/jquery-2.1.1.min.js')
+    link(rel='stylesheet', href='bootstrap-3.1.1-dist/css/bootstrap.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script.
+      function rango(){
+        var fog=document.formulito.distancia.value;
+        var i,j=0,k=0,x=1,auxf=1,auxi,auxic,funcion,contadorA=0,contadorC=0,contaesp=0;
+        var anidadas=[];
+
+        for(i=0;i<fog.length;i++){
+            if((fog.charAt(i)=='A' && fog.charAt(i+1)=='R' && fog.charAt(i+2)=='C' && fog.charAt(i+4)=='S' && fog.charAt(i+5)=='E' && fog.charAt(i+6)=='N' && fog.charAt(i+8)=='H') || (fog.charAt(i)=='A' && fog.charAt(i+1)=='R' && fog.charAt(i+2)=='C' && fog.charAt(i+4)=='S' && fog.charAt(i+5)=='I' && fog.charAt(i+6)=='N' && fog.charAt(i+8)=='H')){
+
+              contadorA=0;
+              j=0;
+              while(j<fog.length){
+                if(fog.charAt(j)=='(')
+                  contadorA++;
+                j++;
+              }
+              contadorC=contadorA;
+              j=i+8;
+              do{
+                //
+                //Hiper inv.
+                if((fog.charAt(j)=='A' && fog.charAt(j+1)=='R' && fog.charAt(j+2)=='C' && fog.charAt(j+4)=='S' && fog.charAt(j+5)=='E' && fog.charAt(j+6)=='N' && fog.charAt(j+8)=='H' && fog.charAt(j-1)=='(' ) || (fog.charAt(j)=='A' && fog.charAt(j+1)=='R' && fog.charAt(j+2)=='C' && fog.charAt(j+4)=='S' && fog.charAt(j+5)=='I' && fog.charAt(j+6)=='N' && fog.charAt(j+8)=='H' && fog.charAt(j-1)=='(' )){
+                  
+                  //Aquí debe ir el for del rango 1 al rango 2 y debe igualarse anidadas[contador] al otro arrreglo
+                  if(fog.charAt((10*contadorA)) !=NaN){
+                    console.log('NUMERO='+fog.charAt((10*contadorA)));
+                    anidadas[contadorC]=Math.asinh(parseInt(fog.charAt((10*contadorA))));
+                    console.log('anidadas[contadorC]='+anidadas[contadorC]);
+                    console.log('[i]='+contadorC);  
+                  }
+                }
+              console.log('Contador='+contadorC);
+
+                
+
+               // console.log('j'+j+'[j]='+fog.charAt(j));
+                if(fog.charAt(j)==')'){
+                  console.log('ENTRO EN EL IF');
+                    contadorC--; 
+                }   
+                j++;
+
+              if(contadorC!=contadorA){
+                    auxic=contadorC;
+                    auxi=10*auxic;
+                    console.log('Auxi='+auxi);
+
+                    if((fog.charAt(auxi)=='A' && fog.charAt(auxi+1)=='R' && fog.charAt(auxi+2)=='C' && fog.charAt(auxi+4)=='S' && fog.charAt(auxi+5)=='E' && fog.charAt(auxi+6)=='N' && fog.charAt(auxi+8)=='H' && (fog.charAt(auxi-2)=='(' ||  fog.charAt(auxi-1)=='(') ) || (fog.charAt(auxi)=='A' && fog.charAt(auxi+1)=='R' && fog.charAt(auxi+2)=='C' && fog.charAt(auxi+4)=='S' && fog.charAt(auxi+5)=='I' && fog.charAt(auxi+6)=='N' && fog.charAt(auxi+8)=='H' && (fog.charAt(auxi-2)=='(' || fog.charAt(auxi-1)=='(') )){
+
+                      auxic=contadorC+1;
+                      /*for(i=0;i<anidadas.length;i++){
+                        console.log('Arreglo['+i+']='+anidadas[i]);
+                      }*/
+                      console.log('Anidadas dif='+anidadas[auxic]);
+                      anidadas[contadorC]=Math.asinh(anidadas[auxic]);
+                      console.log('contadorC+1='+auxic);
+                      console.log('Arc sen h='+anidadas[auxic]);
+                    }  
+              } 
+
+              }while(contadorC>1);
+
+
+            }
+          
+        }
+        
+        console.log('Ani='+anidadas[contadorC]);
+        funcion=anidadas[1];
+        document.formulito.fog.value=funcion;
+      }
+  body(bgcolor='#02D5C3')
+    #titulo
+      h1 Cálculo
+      p Martinez San Roman Aaron Hazel
+      h1 Composición de funciones
+        p(align='left')      
+          form#formulito(role='form', name='formulito')
+            .form-group
+              p 
+                label Función f(x):
+              p
+                .col-sm-4
+                  input#distancia.form-control(type='text',name='distancia')
+            .form-group
+              br
+              p
+                label Función g(x):
+              p
+                .col-sm-4
+                  input#tiempo.form-control(type='text', name='tiempo')
+            br
+            .form-group
+              .col-sm-offset-2.col-sm-4
+                button.btn.btn-primary(type='button', onclick='rango()') Enviar
+            br
+            br
+            br
+            .form-group
+              p 
+                label.control-label.col-sm-2(for='fog') (f o g)(x)=
+                .col-sm-4
+                  input#fog.form-control(name='fog' type='text', readonly)
+                .grisesito
+            .form-group
+              p 
+                label.control-label.col-sm-2(for='gof') (g o f)(x)=
+                .col-sm-4
+                  input#gof.form-control(name='gof' type='text', readonly)
+                .grisesito 
+            br
+            br
+            .form-group  
+              p
+                label Rango:
+              p
+                .col-sm-4
+                  | De:
+                  input#rango1.form-control(type='number', name='rango1')
+              p
+                .col-sm-4
+                  | Hasta:
+                  input#rango2.form-control(type='number', name='rango2')
+              .col-sm-offset-2.col-sm-4
+                button.btn.btn-primary(type='button', onclick='rango("rango1","rango2")') Enviar 
+            br
+            br
+      footer
+        ul
+          li
+            a(href='/') MRU
+          li
+            a(href='/mrua') MRUA
+          li
+            a(href='/') Cinemática

@@ -1,0 +1,284 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Gráfica
+    meta(name='description', content='Gráfica de la composición')
+    meta(name='keywords', content='responsive, content, slider, jquery, css3, fluid, template')
+    meta(name='author', content='Hazel')
+    link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='css/default3.css')
+    link(rel='stylesheet', type='text/css', href='css/component3.css')
+    script(src='js/modernizr.custom.js')
+    script(type='text/javascript', src='jqwery/jquery-2.1.1.min.js')
+    script(type='text/javascript', src='javascripts/calcula.js')
+    script(type='text/javascript', src='javascripts/plotly-latest.min.js')
+    link(rel='stylesheet', href='bootstrap-3.1.1-dist/css/bootstrap.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    style.
+      @font-face {
+        font-family: Monse;
+        src: url('./css/montserrat.woff2');
+      }
+      h3{
+        font-family: Monse;
+        color: #47a3da;
+      }
+      span{
+        font-family: Monse;
+      }
+      #oc{
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: url('/images/izquierda.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #oc:hover{
+        background: url('/images/izquierda2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #oc2{
+        display: block;
+        width: 200px;
+        height: 250px;
+        border: 0;
+        background: url('./images/Ins1.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #oc2:hover{
+        border: 0;
+        background: url('./images/Ins3.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+    script.
+      /*$(document).ready(function(){
+          $('#recarga').click(function(){
+             $('#tester').load('/'+'#tester');
+              var g1= $.parseJSON($('#guarda1').val());
+              var g2= $.parseJSON($('#guarda2').val());
+          });
+
+      });*/
+    script.
+      String.prototype.replaceAll = function (replaceThis, withThis) {
+          var re = new RegExp(replaceThis,"g"); 
+          return this.replace(re, withThis);
+        };
+      function composicion(funcion1,funcion2){
+        var devolver;
+        funcion2='('+funcion2+')';
+        devolver=funcion1.replaceAll("[a-z]",funcion2);
+        return devolver;
+      }
+      function f(x){
+        var r;
+        r=x;
+        return r;
+      } 
+      function derivada(x){
+        var h=0.000000000001;
+        var r;
+        r=(f(x+h)-f(x))/h;
+        return
+      }
+  body
+    form#formita
+      input(type='hidden', name='y1' value='#{y1}')
+      input(type='hidden', name='x1' value='#{x1}')
+      input(type='hidden', name='y2' value='#{y2}')
+      input(type='hidden', name='x2' value='#{x2}')
+      input(type='hidden', name='dy1' value='#{dy1}')
+      input(type='hidden', name='dx1' value='#{dx1}')
+      input(type='hidden', name='dy2' value='#{dy2}')
+      input(type='hidden', name='dx2' value='#{dx2}')
+      input(type='hidden', name='ddy1' value='#{ddy1}')
+      input(type='hidden', name='ddx1' value='#{ddx1}')
+      input(type='hidden', name='ddy2' value='#{ddy2}')
+      input(type='hidden', name='ddx2' value='#{ddx2}')
+      input(type='hidden', name='compu' value='#{compu}')
+      input(type='hidden', name='incre' value='#{incre}')
+      input(type='hidden', name='ran1' value='#{ran1}')
+      input(type='hidden', name='ran2' value='#{ran2}')
+      input(type='hidden', name='fog' value='#{fog}')
+      input(type='hidden', name='gof' value='#{gof}')
+    .container
+      header.clearfix
+        // Aqui va el header!
+      .main
+        .row
+          .col-lg-6
+            a#oc(href='/composicion', title='Componer')
+          .col-lg-6
+            p(align='right')
+              a#oc2(href='/', title='Instrucciones')
+        .row
+          .col-lg-12
+            center
+              h3 Rango:
+        .row
+          .col-lg-12
+            center
+              h3 De = #{ran1} , Hasta = #{ran2}           
+        #cbp-contentslider.cbp-contentslider
+          ul
+            li#slide4
+              h4 (F o G)(x) = #{fog}
+              div
+                .cbp-content
+                  #tester1(style='width:90%;height:80%;')
+                    script.
+                      var i=0,j,guarda1,guarda2,guarda4,de,hasta,increm,comp;
+                      var nega1=[],nega2=[];
+                      //guarda1=getElementById("x1");
+                      //console.log("g1 "+guarda1);
+                      guarda1=formita.x1.value;
+                      guarda2=formita.y1.value;
+                      increm=parseFloat(formita.incre.value);
+                      comp=parseInt(formita.compu.value);
+                      de=parseFloat(formita.ran1.value);
+                      hasta=parseFloat(formita.ran2.value);
+        
+                      console.log("Comp="+comp);
+                      var valores1=guarda1.split(",");
+                      var valores2=guarda2.split(",");
+                      var valaux=valores2;
+                      console.log("Before1 "+valores1);
+                      console.log("Before2 "+valores2);
+                      var trace1 = {
+                        x: valores1, 
+                        y: valores2,
+                        mode: 'lines+markers', 
+                        name: 'f(x)', 
+                        line: {shape: 'linear'}, 
+                        type: 'scatter'
+                      };
+        
+                      if(comp==2){
+    
+                          for(i=0;i<valores1.length;i++){
+                              nega1.push(valores1[i]*(-1));
+                            }
+                            var trace3 = {
+                            x: nega1, 
+                            y: valores2, 
+                            mode: 'lines+markers', 
+                            name: 'f(x)i', 
+                            line: {shape: 'linear'}, 
+                            type: 'scatter'
+                            };
+                            var data = [trace1,trace3];
+                        }
+                        else{
+                            var data = [trace1];                
+                         }
+      
+                          
+                        var layout = {legend: {
+                            y: 1, 
+                            traceorder: 'reversed', 
+                            font: {size: 16}, 
+                            yref: 'paper'
+                        }};
+                        
+                        Plotly.newPlot(document.getElementById('tester1'), data, layout);
+            li#slide5
+              h4 (G o F)(x) = #{gof}
+              div
+                .cbp-content
+                  #tester2(style='width:90%;height:80%;')
+                    script.
+                      var i=0,j,guarda1,guarda2,guarda4,de,hasta,increm,comp;
+                      var nega1=[],nega2=[];
+                      //guarda1=getElementById("x1");
+                      //console.log("g1 "+guarda1);
+                      guarda1=formita.x2.value;
+                      guarda2=formita.y2.value;
+                      increm=parseFloat(formita.incre.value);
+                      comp=parseInt(formita.compu.value);
+                      de=parseFloat(formita.ran1.value);
+                      hasta=parseFloat(formita.ran2.value);
+        
+                      console.log("Comp="+comp);
+                      var valores1=guarda1.split(",");
+                      var valores2=guarda2.split(",");
+                      var valaux=valores2;
+                      console.log("Before1 "+valores1);
+                      console.log("Before2 "+valores2);
+                      var trace1 = {
+                        x: valores1, 
+                        y: valores2,
+                        mode: 'lines+markers', 
+                        name: 'f(x)', 
+                        line: {shape: 'linear'}, 
+                        type: 'scatter'
+                      };
+                        var derivacion=formita.dy2.value.split(",");
+                        var auxd=formita.dx2.value.split(",");
+        
+                        console.log("Derivada X "+auxd);
+                        console.log("Derivada Y "+derivacion);
+                        var trace2 = {
+                          x: auxd, 
+                          y: derivacion, 
+                          mode: 'lines+markers', 
+                          name: 'derivada', 
+                          line: {shape: 'linear'}, 
+                          type: 'scatter'
+                        };
+        
+                      if(comp==2){
+    
+                        for(i=0;i<valores1.length;i++){
+                            nega1.push(valores1[i]*(-1));
+                          }
+                          var trace3 = {
+                          x: nega1, 
+                          y: valores2, 
+                          mode: 'lines+markers', 
+                          name: 'f(x)i', 
+                          line: {shape: 'linear'}, 
+                          type: 'scatter'
+                        };
+                        var data = [trace1,trace2,trace3];
+                      }
+                      else{  
+                          var data = [trace1,trace2];                
+                       }
+    
+                      
+                      var layout = {legend: {
+                           y: 1, 
+                           traceorder: 'reversed', 
+                           font: {size: 16}, 
+                           yref: 'paper'
+                       }};
+                       
+                       Plotly.newPlot(document.getElementById('tester2'), data, layout);
+          nav
+            a.icon-turtle(href='#slide4')
+              span (f o g)(x)
+            a.icon-platypus(href='#slide5')
+              span (g o f)(x)
+    script(src='js/jquery.cbpContentSlider.min.js')
+    script.
+      $(function() {
+      /*
+      - how to call the plugin:
+      $( selector ).cbpContentSlider( [options] );
+      - options:
+      {
+      // default transition speed (ms)
+      speed : 500,
+      // default transition easing
+      easing : 'ease-in-out',
+      // current item's index
+      current : 0
+      }
+      - destroy:
+      $( selector ).cbpContentSlider( 'destroy' );
+      */
+      $( '#cbp-contentslider' ).cbpContentSlider();
+      });

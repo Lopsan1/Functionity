@@ -1,0 +1,214 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Introducción
+    meta(name='description', content='Introducción del programa')
+    meta(name='keywords', content='on scroll, effect, slide in, layout, template, transition, javascript')
+    meta(name='author', content='Hazel')
+    link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='css/demo4.css')
+    link(rel='stylesheet', type='text/css', href='css/component4.css')
+    script(src='js/modernizr.custom.js')
+    style.
+      #ap{
+        display: block;
+        width: 400px;
+        height: 150px;
+        border: 0;
+        background: url('./images/app.jpg') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #ap:hover{
+        border: 0;
+        background: url('./images/app2.jpg') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #ap:active{
+        border: 0;
+        background: url('./images/app3.jpg') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+  body
+    .container
+      header.clearfix
+        h2
+          nav
+            a(href='/#I', title='Instrucciones')
+              br
+              b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I
+            a(href='/#T', title='Trucos')
+              br
+              b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T
+            a(href='/#S', title='Sintaxis')
+              br
+              b &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S
+      #cbp-so-scroller.cbp-so-scroller
+        section.cbp-so-section
+          h2#I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instrucciones.
+          article.cbp-so-side.cbp-so-side-left
+            h2 1)
+            p
+              | Dar click en 
+              b
+                em 
+                 |"Componer".
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/1.gif')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/2.gif')
+          article.cbp-so-side.cbp-so-side-right
+            h2 2)
+            p
+              | Escribir las ecuaciones en los campos y dar click en 
+              b
+                em 
+                 |"Componer".
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 3 . 0)
+            p
+              | Dar click en la flecha y luego en 
+              b
+                em 
+                 |"Graficar".
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/3.gif')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/4.gif')
+          article.cbp-so-side.cbp-so-side-right
+            h2 3 . 1)
+            p
+              | Tambien puedes dar 
+              em "Tab" 
+              | 3 veces y pasar directo al formulario de la gráfica.
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 4)
+            p
+              | Ingrese valores en los rangos, de click en 
+              b
+                em 
+                 |"Graficar".
+            p  
+              | Si quiere cambiar de función, seleccione  
+              b " (F o G) (x) "  
+              | o  
+            p 
+              b " (G o F) (x) ".
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/5.gif')
+        section.cbp-so-section
+          h2#T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trucos.
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/6.gif')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Multiplicación
+            p
+              | El programa cambia automáticamente si quieres indicar una multiplicación sin usar el
+              em *.
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 Paréntesis
+            p
+              | Al igual que los paréntesis.
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/7.gif')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/8.gif')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Notación científica
+            p
+              | El programa interpreta la notación científica.
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 Constantes
+            p
+              | Si quiere sus cálculo más exactos, puede usar Pi ingresando 
+              b "P"
+              |, o en todo caso la constante de Euler ingresando 
+              b "E".
+            p
+              | También puede realizar operaciones con estos.
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/9.gif')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/10.gif')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Guardar gráficos
+            p
+              | Puedes guardar la gráfica actual como una imagen PNG.
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 Graficar sin componer
+            p Si usted quiere graficar una función sin componer, puede poner la función en cualquier campo y una sola variable en el otro. Así no afectará cuando se componga.
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/15.jpg')
+      p(align='center')
+        a#ap(href='/composicion')
+        section.cbp-so-section
+          h2#S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sintaxis, detalles y errores.
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/11.jpg')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Funciones
+            p
+              | Puedes ingresar funciones ya sea en minúsculas o mayúsculas; al igual que las variables.
+            p
+              | Sin embargo el programa va a cambiar a mayúsculas las funciones y a minúsculas las variables.
+            p
+              | 
+              b Nota: 
+              | De preferencia solo use una letra para las variables, de todas maneras, el programa le dará los mismos valores a esas variables aunque sean distintas letras. 
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 Logaritmos
+            p
+              | La sintáxis para usar un logaritmo, primero se pone la base y luego el número o variable entre paréntesis.
+            p 
+              em log(base)(numero)
+            p 
+              | Para el logaritmo natural solo se pone ln y el número entre paréntesis.
+            p
+              em ln(numero)
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/12.jpg')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/13.jpg')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Exponencial
+            p Por conveniencia del programa este agrega más paréntesis cuando se trata de una función exponencial.
+            p 
+             | 
+             b Nota: 
+             | Por este motivo no deje el campo hasta que termine de escribir su ecuación, porque el programa puede asumir que está intentando de escribir la constante de Euler, notación científica, o la función seno.
+        section.cbp-so-section
+          article.cbp-so-side.cbp-so-side-left
+            h2 Potencia negativa
+            p El programa está hecho con notación postfija, por lo que puede que no tome el signo negativo en ocasiones.
+            p Para hacerlo usted puede hacer operaciones en las cuales salga un número negativo.
+            p Ejemplos:
+            p x^(2-3) = x^(-1) 
+            p x^(2-5) = x^(-3)
+          figure.cbp-so-side.cbp-so-side-right
+            img(src='images/14.jpg')
+        section.cbp-so-section
+          figure.cbp-so-side.cbp-so-side-left
+            img(src='images/15.jpg')
+          article.cbp-so-side.cbp-so-side-right
+            h2 Paréntesis
+            p Siempre ponga paréntesis, puede que el programa sirva aunque usted no los utilice, pero si la gráfica no queda como planeaba, reescriba la ecuación con los paréntesis necesarios.
+            p 
+              b Nota:
+              | No use [] ni {}, y ponga todos los paréntesis  que no se le olvide alguno, como en este ejemplo: 2(sen(x). Aunque puede que no afecte el programa, es mejor asegurarse.
+    script(src='js/classie2.js')
+    script(src='js/cbpScroller2.js')
+    script.
+      new cbpScroller( document.getElementById( 'cbp-so-scroller' ) );

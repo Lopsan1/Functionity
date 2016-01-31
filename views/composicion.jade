@@ -1,0 +1,821 @@
+doctype html
+html.no-js(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Composición de funciones
+    meta(name='description', content='Compone y grafica tus funciones')
+    meta(name='author', content='Hazel')
+    link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='css/component.css')
+    link(rel='stylesheet', type='text/css', href='css/component2.css')
+    link(rel='stylesheet', type='text/css', href='css/demo.css')
+    script(type='text/javascript', src='jqwery/jquery-2.1.1.min.js')
+    script(src='js/modernizr.custom.js')
+    script.
+      $(document).ready(function(){
+        $("#componer").click(function(){
+            $("#input1").hide(500);
+            $("#input1").show(500);
+        });
+      });
+    style.
+      #input1{
+          display:none;
+      }
+      #componer{
+        display: block;
+        width: 260px;
+        height: 80px;
+        border: 0;
+        background: url('./images/Componer.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #componer:hover{
+        border: 0;
+        background: url('./images/Componer2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #componer:active{
+        border: 0;
+        background: url('./images/Componer2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #compoo{
+        display: block;
+        width: 300px;
+        height: 300px;
+        border: 0;
+        background: url('./images/Compo.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #compoo:hover{
+        border: 0;
+        background: url('./images/Compo2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #graficaa{
+        display: block;
+        width: 300px;
+        height: 300px;
+        border: 0;
+        background: url('./images/Graph.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #graficaa:hover{
+        border: 0;
+        background: url('./images/Graph2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #graficar{
+        display: block;
+        width: 260px;
+        height: 80px;
+        border: 0;
+        background: url('./images/Graficar.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #graficar:hover{
+        border: 0;
+        background: url('./images/Graficar2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #graficar:active{
+        border: 0;
+        background: url('./images/Graficar2.png') no-repeat bottom;
+        transition: all 0.2s ease 0s;
+      }
+      #oc{
+        display: block;
+        marging-top: 50px;
+        padding-top:50px;
+        width: 200px;
+        height: 250px;
+        background: url('/images/Ins.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #oc:hover{
+        marging-top:50px;
+        padding-top:50px;
+        width: 200px;
+        height: 250px;
+        background: url('/images/Ins2.png') no-repeat top;
+        transition: all 0.2s ease 0s;
+      }
+      #oc2{
+        display: block;
+        width: 200px;
+        height: 250px;
+        background: url('/images/Ins1.png') no-repeat top;
+        transition: all 0.3s ease 0s;
+      }
+      #oc2:hover{
+        width: 200px;
+        height: 250px;
+        background: url('/images/Ins21.png') no-repeat top;
+        transition: all 0.2s ease 0s;
+      }
+    script.
+      String.prototype.isNumeric = function(){
+        return !isNaN(parseFloat(this)) && isFinite(this);
+      }
+      function cambia(entrada){
+        var i,j,token,regresa="",valida1=0,contador1=0,contador2=0,aux=0,auxa=-2;
+        var jotas1=[],jotas2=[],valfor1=[],valfor2=[],logaritmos=[];
+        var cadena=document.getElementById(entrada).value;
+        for(i=0;i<cadena.length;i++){
+          tokenmenos4=cadena.charAt(i-4);
+          tokenmenos3=cadena.charAt(i-3);
+          tokenmenos2=cadena.charAt(i-2);
+          tokenmenos=cadena.charAt(i-1);
+          tokenmas=cadena.charAt(i+1);
+          token=cadena.charAt(i);
+          if(token==='P'){
+            console.log("Hay PI");
+            token=Math.PI;
+          }
+          if(token==='E' && !(/\^+/.test(tokenmas)) && tokenmenos!=='S' && tokenmas!=='C' && tokenmas!=='N'){
+            console.log("Hay E");
+            token=Math.E;
+          }
+          if(token=='(' && (/([a-z])+/.test(tokenmenos) || tokenmenos.isNumeric()) && tokenmenos!=='e'){
+            if((tokenmenos=='n' && tokenmenos2=='e' && tokenmenos3=='s') || (tokenmenos=='n' && tokenmenos2=='i' && tokenmenos3=='s') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='e'  && tokenmenos4=='s') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='i'  && tokenmenos4=='s') || (tokenmenos=='n' && tokenmenos2=='a' && tokenmenos3=='t') || (tokenmenos=='g' && tokenmenos2=='t') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='a'  && tokenmenos4=='t') || (tokenmenos=='h' && tokenmenos2=='g' && tokenmenos3=='t' ) || (tokenmenos=='s' && tokenmenos2=='o' && tokenmenos3=='c')  || (tokenmenos=='h' && tokenmenos2=='s' && tokenmenos3=='o'  && tokenmenos4=='c') || (tokenmenos=='t' && tokenmenos2=='o' && tokenmenos3=='c') || (tokenmenos=='g' && tokenmenos2=='t' && tokenmenos3=='c') || (tokenmenos=='h' && tokenmenos2=='t' && tokenmenos3=='o'  && tokenmenos4=='c') || (tokenmenos=='h' && tokenmenos2=='g' && tokenmenos3=='t'  && tokenmenos4=='c') || (tokenmenos=='c' && tokenmenos2=='e' && tokenmenos3=='s')  || (tokenmenos=='h' && tokenmenos2=='c' && tokenmenos3=='e'  && tokenmenos4=='s') || (tokenmenos=='c' && tokenmenos2=='s' && tokenmenos3=='c')  || (tokenmenos=='h' && tokenmenos2=='c' && tokenmenos3=='s'  && tokenmenos4=='c') || (tokenmenos=='g' && tokenmenos2=='o' && tokenmenos3=='l')  || (tokenmenos=='n' && tokenmenos2=='l')  ){
+            }
+            else{
+              token="*(";
+            }
+            console.log("Entro al parentesis");
+            
+          }
+          if(/([A-Z])+/.test(token) && (/([a-z])+/.test(tokenmenos) || tokenmenos.isNumeric()) ){
+            console.log("Entro a la funcion");
+            token='*'+token;
+          }
+          if(/([a-z])+/.test(token) && tokenmenos.isNumeric()){
+            console.log("Hay Numero-Letra");
+            token='*'+token;
+          }
+          if(/([a-z])+/.test(tokenmenos) && token.isNumeric() && tokenmenos!=='e'){
+            console.log("Hay Letra-Numero");
+            if((tokenmenos=='n' && tokenmenos2=='e' && tokenmenos3=='s') || (tokenmenos=='n' && tokenmenos2=='i' && tokenmenos3=='s') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='e'  && tokenmenos4=='s') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='i'  && tokenmenos4=='s') || (tokenmenos=='n' && tokenmenos2=='a' && tokenmenos3=='t') || (tokenmenos=='g' && tokenmenos2=='t') || (tokenmenos=='h' && tokenmenos2=='n' && tokenmenos3=='a'  && tokenmenos4=='t') || (tokenmenos=='h' && tokenmenos2=='g' && tokenmenos3=='t' ) || (tokenmenos=='s' && tokenmenos2=='o' && tokenmenos3=='c')  || (tokenmenos=='h' && tokenmenos2=='s' && tokenmenos3=='o'  && tokenmenos4=='c') || (tokenmenos=='t' && tokenmenos2=='o' && tokenmenos3=='c') || (tokenmenos=='g' && tokenmenos2=='t' && tokenmenos3=='c') || (tokenmenos=='h' && tokenmenos2=='t' && tokenmenos3=='o'  && tokenmenos4=='c') || (tokenmenos=='h' && tokenmenos2=='g' && tokenmenos3=='t'  && tokenmenos4=='c') || (tokenmenos=='c' && tokenmenos2=='e' && tokenmenos3=='s')  || (tokenmenos=='h' && tokenmenos2=='c' && tokenmenos3=='e'  && tokenmenos4=='s') || (tokenmenos=='c' && tokenmenos2=='s' && tokenmenos3=='c')  || (tokenmenos=='h' && tokenmenos2=='c' && tokenmenos3=='s'  && tokenmenos4=='c') || (tokenmenos=='g' && tokenmenos2=='o' && tokenmenos3=='l')  || (tokenmenos=='n' && tokenmenos2=='l')  ){
+            }
+            else{
+              token="*"+token;
+            }
+          }
+          if((tokenmenos3=='L' || tokenmenos3=='l') && (tokenmenos2=='O' || tokenmenos2=='o') && (tokenmenos=='G' || tokenmenos=='g') && /\(+/.test(token)){
+              console.log('Entro al if del LOG');
+              j=i;
+              valida1=0;
+              ciclo1:
+              while(valida1==0){
+                var tokenj=cadena.charAt(j);
+                j++;
+                if(tokenj==='(')
+                  contador1++;
+                if(tokenj===')')
+                  contador2++;
+                if(contador2===contador1 && contador2!==0)
+                  valida1++;
+                if(contador1==0 && j>=i+3)
+                  break ciclo1;
+                if(j>=cadena.length)
+                  break ciclo1;
+              }
+              j--;
+              console.log('j= '+j);
+              logaritmos.push(j);
+              j++;
+              console.log('j= '+j);
+              logaritmos.push(j);
+          }
+
+
+          if(tokenmenos===')' && token==='('){
+            //LOG()()
+            console.log("Hay parentesis m");
+            if(logaritmos[logaritmos.length-2]!=undefined && logaritmos[logaritmos.length-1]!=undefined){
+               if(i-1!=logaritmos[logaritmos.length-2] && i!=logaritmos[logaritmos.length-1]){
+                token='*'+token;
+              }else{
+                logaritmos.pop();
+                logaritmos.pop();
+              }             
+            }else{
+              token='*'+token;
+            }
+          }
+          if(/\)+/.test(tokenmenos) && /([a-z])+/.test(token)){
+            console.log("Hay parentesis-letra");
+            token='*'+token;
+          }
+          if(/\)+/.test(tokenmenos) && token.isNumeric()){
+            console.log("Hay parentesis-numero");
+            token='*'+token;
+          }
+          if(/\)+/.test(tokenmenos) && /([A-Z])+/.test(token)){
+            console.log("Hay parentesis-funcion");
+            token='*'+token;
+          }
+          if(/\*+/.test(tokenmenos) && /\*+/.test(token)){
+            console.log("Hay doble");
+            token='';
+          }
+          if(tokenmenos!='s' &&token==='e' && !(/\^+/.test(tokenmas))){
+              console.log("Hay ^10");
+              valida1=0;
+              contador1=0;
+              contador2=0;
+              j=i;
+              ciclo1:
+              while(valida1==0){
+                var tokenj=cadena.charAt(j);
+                j++;
+                if(tokenj==='(')
+                  contador1++;
+                if(tokenj===')')
+                  contador2++;
+                if(contador2===contador1 && contador2!==0)
+                  valida1++;
+                if(contador1==0 && j>=i+3)
+                  break ciclo1;
+                if(j>=cadena.length)
+                  break ciclo1;
+              }
+              if(contador1!=0){
+              }
+              else{
+                ciclo2:
+                while(cadena.charAt(j).isNumeric() || /[a-z]+/.test(cadena.charAt(j))){
+                  aux++;
+                  j++;
+                  if(/[ \+\-\*\/\^\(\)]+/.test(cadena.charAt(j)) || cadena.charAt(j)=="" || j>=cadena.length)
+                    break ciclo2; 
+                }
+              }
+              console.log("aux "+aux);
+              console.log("J1 "+j);
+              j-=1;
+              console.log("J2 "+j);
+
+
+              console.log("J "+j);
+              valfor1.push(1);
+              jotas1.push(j);
+              token="10^(";
+
+          }
+          if(valfor1[valfor1.length-1]==1 && i==jotas1[jotas1.length-1]){
+            console.log("Termina ^10");
+            console.log("Token "+token);
+            token+=')';
+            valfor1.pop();
+            jotas1.pop();
+          }
+          if(token==='e' && /\^+/.test(tokenmas)){
+              console.log("Hay exponencial");
+              valida1=0;
+              contador1=0;
+              contador2=0;
+              j=i;
+              ciclo1:
+              while(valida1==0){
+                var tokenj=cadena.charAt(j);
+                j++;
+                if(tokenj==='(')
+                  contador1++;
+                if(tokenj===')')
+                  contador2++;
+                if(contador2===contador1 && contador2!==0)
+                  valida1++;
+                if(contador1==0 && j>=i+3)
+                  break ciclo1;
+                if(j>=cadena.length)
+                  break ciclo1;
+              }
+              if(contador1!=0){
+              }
+              else{
+                ciclo2:
+                while(cadena.charAt(j).isNumeric() || /[a-z]+/.test(cadena.charAt(j))){
+                  j++;
+                  if(/[ \+\-\*\/\^\(\)]+/.test(cadena.charAt(j)) || cadena.charAt(j)=="" || j>cadena.length)
+                    break ciclo2;   
+                }
+              }
+              console.log("J "+j);
+              j--;
+
+              valfor2.push(1);
+              jotas2.push(j);
+              token="(e"
+          }
+          if(valfor2[valfor2.length-1]==1 && i==jotas2[jotas2.length-1]){
+            console.log("Fin del exponencial");
+            token+=')';
+            valfor2.pop();
+            jotas2.pop();
+          }
+          regresa+=token;
+        }
+        document.getElementById(entrada).value=regresa;
+      }
+      function valida(){
+        var cadena1=document.formulito.rango1.value;
+        var cadena2=document.formulito.rango2.value;
+        var fog=document.formulito.fog.value;
+        var gof=document.formulito.gof.value;
+        var i,token,validaN1=0,validaO1=0,validaN2=0,validaO2=0,validaTodo1=0,validaTodo2=0,conta1=0,conta2=0;
+          
+        if((/[0-9\.]+[ \+\-\*\/\^\(\)]*/.test(cadena1)) ){
+          validaTodo1=1;
+        }
+        else{
+          validaTodo1=0;
+        }
+        for(i=0;i<cadena1.length;i++){
+          token=cadena1.charAt(i);
+          if(token.isNumeric())
+            validaN1++;
+          else if(!(/[ \+\-\*\/\^\(\)\.]+/.test(token)) && !(token.isNumeric())){
+            if(conta1==0){
+              alert('Hay caracteres no permitidos en el rango 1: '+token);  
+              conta1++;           
+            }
+            validaTodo1=0;
+          }
+        }
+        if(validaN1==0){
+          alert('Por favor ingrese un numero en el rango 1');
+          validaTodo1=0;
+        }
+        if((/[0-9\.]+[ \+\-\*\/\^\(\)]*/.test(cadena2)) ){
+          validaTodo2=1;
+        }
+        else{
+          validaTodo2=0;
+        }
+        for(i=0;i<cadena2.length;i++){
+          token=cadena2.charAt(i);
+          if(token.isNumeric())
+            validaN2++;
+          else if(!(/[ \+\-\*\/\^\(\)\.]+/.test(token)) && !(token.isNumeric())){
+            if(conta2==0){
+              alert('Hay caracteres no permitidos en el rango 2: '+token);  
+              conta2++;           
+            }
+            validaTodo2=0;
+          }
+        }
+        if(validaN2==0){
+          alert('Por favor ingrese un numero en el rango 2');
+          validaTodo2=0;
+        }
+        if(fog.length<=0 || gof.length<=0){
+          alert('Aun no hay funcion la cual graficar, por favor regrese a "Componer"');
+          validaTodo1=0;
+          validaTodo2=0;
+        }
+        if(validaTodo1==1 && validaTodo2==1){
+          document.formulito.submit();
+        }
+      }
+      String.prototype.replaceAll = function (replaceThis, withThis) {
+          var re = new RegExp(replaceThis,"g"); 
+          return this.replace(re, withThis);
+        };
+      function composicion(funcion1,funcion2){
+        var devolver;
+        funcion2='('+funcion2+')';
+        devolver=funcion1.replaceAll("[a-z]",funcion2);
+        return devolver;
+      }
+      function f(x){
+        var r;
+        r=x;
+        return r;
+      } 
+      function derivada(x){
+        var h=0.00000000000001;
+        var r;
+        r=(f(x+h)-f(x))/h;
+        return r;
+      }
+
+      function compa(){
+        var cadena1 =document.formulito.distancia.value;
+        var cadena2 =document.formulito.tiempo.value;
+        var numero='';
+        var i;
+        var aux1,i2,aa,aa2;
+        cadena1=cadena1.toLowerCase();
+        cadena2=cadena2.toLowerCase();
+        aux1=cadena1;
+
+        if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1) ||/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1})+/.test(cadena1) || /([s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena1) || /([s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena1) || /([c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena1) || /([t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena1) || /([t]{1}[g]{1}[h]{1})+/.test(cadena1) || /([c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena1) || /([c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1) || /([s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena1) || /([c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena1) || /([s]{1}[e]{1}[n]{1})+/.test(cadena1) || /([s]{1}[i]{1}[n]{1})+/.test(cadena1) || /([c]{1}[o]{1}[s]{1})+/.test(cadena1) || /([t]{1}[a]{1}[n]{1})+/.test(cadena1) || /([t]{1}[g]{1})+/.test(cadena1) || /([c]{1}[o]{1}[t]{1})+/.test(cadena1) || /([c]{1}[t]{1}[g]{1})+/.test(cadena1) || /([s]{1}[e]{1}[c]{1})+/.test(cadena1) || /([c]{1}[s]{1}[c]{1})+/.test(cadena1) || /([l]{1}[o]{1}[g]{1})+/.test(cadena1) || /([l]{1}[n]{1})+/.test(cadena1) || /([e]{1}[\^]{1})+/.test(cadena1) || (!(/([e]{1}[\^]{1})+/.test(cadena1)) &&  /([a-z]+\^+\(+[0-9]+\.?[0-9]*\/+[0-9]+\.?[0-9]*)+/.test(cadena1) ) ){
+
+          //Funciones Hiperbólicas inversas
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcoseno hiperbólico');
+            cadena1=cadena1.replaceAll("arcsenh","ARCSENH");
+            cadena1=cadena1.replaceAll("arcsinh","ARCSINH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcocoseno hiperbólico');
+            cadena1=cadena1.replaceAll("arccosh","ARCCOSH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcotangente hiperbólica');
+            cadena1=cadena1.replaceAll("arctanh","ARCTANH");
+            cadena1=cadena1.replaceAll("arctgh","ARCTGH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcocotangente hiperbólica');
+            cadena1=cadena1.replaceAll("arccoth","ARCCOTH");
+            cadena1=cadena1.replaceAll("arcctgh","ARCCTGH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcosecante hiperbólica');
+            cadena1=cadena1.replaceAll("arcsech","ARCSECH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene arcocosecante hiperbólica');
+            cadena1=cadena1.replaceAll("arccsch","ARCCSCH");
+            document.formulito.guarda1.value=1;
+          }
+  
+          //Funciones Trigonométricas Inversas
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1})+/.test(cadena1)){
+            //alert('Contiene arcoseno');
+            cadena1=cadena1.replaceAll("arcsen","ARCSEN");
+            cadena1=cadena1.replaceAll("arcsin","ARCSIN");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1})+/.test(cadena1)){
+            //alert('Contiene arcocoseno');
+            cadena1=cadena1.replaceAll("arccos","ARCCOS");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena1)){
+            //alert('Contiene arcotangente');
+            cadena1=cadena1.replaceAll("arctan","ARCTAN");
+            cadena1=cadena1.replaceAll("arctg","ARCTG");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1})+/.test(cadena1) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena1)){
+            //alert('Contiene arcocotangente');
+            cadena1=cadena1.replaceAll("arccot","ARCCOT");
+            cadena1=cadena1.replaceAll("arcctg","ARCCTG");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1})+/.test(cadena1)){
+            //alert('Contiene arcosecante');
+            cadena1=cadena1.replaceAll("arcsec","ARCSEC");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1})+/.test(cadena1)){
+            //alert('Contiene arcocosecante');
+            cadena1=cadena1.replaceAll("arccsc","ARCCSC");
+            document.formulito.guarda1.value=1;
+          }
+  
+          //Funciones Hiperbólicas
+          if(/([s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena1) || /([s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene seno hiperbólico');
+            cadena1=cadena1.replaceAll("senh","SENH");
+            cadena1=cadena1.replaceAll("sinh","SINH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene coseno hiperbólico');
+            cadena1=cadena1.replaceAll("cosh","COSH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena1) || /([t]{1}[g]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene tangente hiperbólica');
+            cadena1=cadena1.replaceAll("tanh","TANH");
+            cadena1=cadena1.replaceAll("tgh","TGH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena1) || /([c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene cotangente hiperbólica');
+            cadena1=cadena1.replaceAll("coth","COTH");
+            cadena1=cadena1.replaceAll("ctgh","CTGH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene secante hiperbólica');
+            cadena1=cadena1.replaceAll("sech","SECH");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena1)){
+            //alert('Contiene cosecante hiperbólica');
+            cadena1=cadena1.replaceAll("csch","CSCH");
+            document.formulito.guarda1.value=1;
+          }
+
+          //Funciones trigonométricas
+          if(/([s]{1}[e]{1}[n]{1})+/.test(cadena1) || /([s]{1}[i]{1}[n]{1})+/.test(cadena1)){
+            //alert('Contiene seno');
+            cadena1=cadena1.replaceAll("sen","SEN");
+            cadena1=cadena1.replaceAll("sin","SIN");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[o]{1}[s]{1})+/.test(cadena1)){
+            //alert('Contiene coseno');
+            cadena1=cadena1.replaceAll("cos","COS");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[o]{1}[t]{1})+/.test(cadena1) || /([c]{1}[t]{1}[g]{1})+/.test(cadena1)){
+            //alert('Contiene cotangente');
+            cadena1=cadena1.replaceAll("cot","COT");
+            cadena1=cadena1.replaceAll("ctg","CTG");
+            document.formulito.guarda1.value=1;
+          } 
+          if(/([t]{1}[a]{1}[n]{1})+/.test(cadena1) || /([t]{1}[g]{1})+/.test(cadena1)){
+            //alert('Contiene tangente');
+            cadena1=cadena1.replaceAll("tan","TAN");
+            cadena1=cadena1.replaceAll("tg","TG");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([s]{1}[e]{1}[c]{1})+/.test(cadena1)){
+            //alert('Contiene secante');
+            cadena1=cadena1.replaceAll("sec","SEC");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([c]{1}[s]{1}[c]{1})+/.test(cadena1)){
+            //alert('Contiene cosecante');
+            cadena1=cadena1.replaceAll("csc","CSC");
+            document.formulito.guarda1.value=1;
+          }
+          if(/([l]{1}[o]{1}[g]{1})+/.test(cadena1)){
+            //alert('Contiene logaritmo');
+            cadena1=cadena1.replaceAll("log","LOG");
+            document.formulito.guarda1.value=2;
+          }
+          if(/([l]{1}[n]{1})+/.test(cadena1)){
+            //alert('Contiene logaritmo natural');
+            cadena1=cadena1.replaceAll("ln","LN");
+            document.formulito.guarda1.value=2;
+          }
+          if(/([e]{1}[\^]{1})+/.test(cadena1)){
+            //alert('Contiene el número de Euler o exponencial');
+            cadena1=cadena1.replaceAll("[e]{1}[\^]{1}","E^");
+            document.formulito.guarda1.value=2;
+          }
+          if((!(/([e]{1}[\^]{1})+/.test(cadena1)) && (/([a-z]+\^+\(+[0-9]+\.?[0-9]*\/+[0-9]+\.?[0-9]*)+/.test(cadena1) || /([a-z]+\^+\(+[0-9]+\.?[0-9]*)+/.test(cadena1)) )){
+            document.formulito.guarda1.value=2;
+          }
+        }
+        
+
+        if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2) ||/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1})+/.test(cadena2) || /([s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena2) || /([s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena2) || /([c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena2) || /([t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena2) || /([t]{1}[g]{1}[h]{1})+/.test(cadena2) || /([c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena2) || /([c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2) || /([s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena2) || /([c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena2) || /([s]{1}[e]{1}[n]{1})+/.test(cadena2) || /([s]{1}[i]{1}[n]{1})+/.test(cadena2) || /([c]{1}[o]{1}[s]{1})+/.test(cadena2) || /([t]{1}[a]{1}[n]{1})+/.test(cadena2) || /([t]{1}[g]{1})+/.test(cadena2) || /([c]{1}[o]{1}[t]{1})+/.test(cadena2) || /([c]{1}[t]{1}[g]{1})+/.test(cadena2) || /([s]{1}[e]{1}[c]{1})+/.test(cadena2) || /([c]{1}[s]{1}[c]{1})+/.test(cadena2) || /([l]{1}[o]{1}[g]{1})+/.test(cadena2) || /([l]{1}[n]{1})+/.test(cadena2) || /([e]{1}[\^]{1})+/.test(cadena2) || (!(/([e]{1}[\^]{1})+/.test(cadena2)) && /([a-z]+\^+\(+[0-9]+\.?[0-9]*\/+[0-9]+\.?[0-9]*)+/.test(cadena2) )){
+
+          //Funciones Hiperbólicas inversas
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena2)){
+          //alert('Contiene arcoseno hiperbólico');
+            cadena2=cadena2.replaceAll("arcsenh","ARCSENH");
+            cadena2=cadena2.replaceAll("arcsinh","ARCSINH");
+            document.formulito.guarda2.value=1;
+            
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene arcocoseno hiperbólico');
+            cadena2=cadena2.replaceAll("arccosh","ARCCOSH");
+            document.formulito.guarda2.value=1;
+            
+          }
+          if(/([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2)){
+          //alert('Contiene arcotangente hiperbólica');
+            cadena2=cadena2.replaceAll("arctanh","ARCTANH");
+            cadena2=cadena2.replaceAll("arctgh","ARCTGH");
+            document.formulito.guarda2.value=1;
+            
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene arcocotangente hiperbólica');
+            cadena2=cadena2.replaceAll("arccoth","ARCCOTH");
+            cadena2=cadena2.replaceAll("arcctgh","ARCCTGH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena2)){
+          //alert('Contiene arcosecante hiperbólica');
+            cadena2=cadena2.replaceAll("arcsech","ARCSECH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena2)){
+          //alert('Contiene arcocosecante hiperbólica');
+            cadena2=cadena2.replaceAll("arccsch","ARCCSCH");
+            document.formulito.guarda2.value=1;
+          }
+  
+          //Funciones Trigonométricas Inversas
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[n]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[s]{1}[i]{1}[n]{1})+/.test(cadena2)){
+          //alert('Contiene arcoseno');
+            cadena2=cadena2.replaceAll("arcsen","ARCSEN");
+            cadena2=cadena2.replaceAll("arcsin","ARCSIN");
+            
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[s]{1})+/.test(cadena2)){
+          //alert('Contiene arcocoseno');
+            cadena2=cadena2.replaceAll("arccos","ARCCOS");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[t]{1}[a]{1}[n]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena2)){
+          //alert('Contiene arcotangente');
+            cadena2=cadena2.replaceAll("arctan","ARCTAN");
+            cadena2=cadena2.replaceAll("arctg","ARCTG");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[o]{1}[t]{1})+/.test(cadena2) || /([a]{1}[r]{1}[c]{1}[c]{1}[t]{1}[g]{1})+/.test(cadena2)){
+          //alert('Contiene arcocotangente');
+            cadena2=cadena2.replaceAll("arccot","ARCCOT");
+            cadena2=cadena2.replaceAll("arcctg","ARCCTG");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[s]{1}[e]{1}[c]{1})+/.test(cadena2)){
+          //alert('Contiene arcosecante');
+            cadena2=cadena2.replaceAll("arcsec","ARCSEC");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([a]{1}[r]{1}[c]{1}[c]{1}[s]{1}[c]{1})+/.test(cadena2)){
+          //alert('Contiene arcocosecante');
+            cadena2=cadena2.replaceAll("arccsc","ARCCSC");
+            document.formulito.guarda2.value=1;
+          }
+  
+          //Funciones Hiperbólicas
+          if(/([s]{1}[e]{1}[n]{1}[h]{1})+/.test(cadena2) || /([s]{1}[i]{1}[n]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene seno hiperbólico');
+            cadena2=cadena2.replaceAll("senh","SENH");
+            cadena2=cadena2.replaceAll("sinh","SINH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[o]{1}[s]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene coseno hiperbólico');
+            cadena2=cadena2.replaceAll("cosh","COSH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([t]{1}[a]{1}[n]{1}[h]{1})+/.test(cadena2) || /([t]{1}[g]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene tangente hiperbólica');
+            cadena2=cadena2.replaceAll("tanh","TANH");
+            cadena2=cadena2.replaceAll("tgh","TGH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[o]{1}[t]{1}[h]{1})+/.test(cadena2) || /([c]{1}[t]{1}[g]{1}[h]{1})+/.test(cadena2)){
+          // alert('Contiene cotangente hiperbólica');
+            cadena2=cadena2.replaceAll("coth","COTH");
+            cadena2=cadena2.replaceAll("ctgh","CTGH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([s]{1}[e]{1}[c]{1}[h]{1})+/.test(cadena2)){
+           // alert('Contiene secante hiperbólica');
+            cadena2=cadena2.replaceAll("sech","SECH");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[s]{1}[c]{1}[h]{1})+/.test(cadena2)){
+           // alert('Contiene cosecante hiperbólica');
+            cadena2=cadena2.replaceAll("csch","CSCH");
+            document.formulito.guarda2.value=1;
+          }
+
+          //Funciones trigonométricas
+          if(/([s]{1}[e]{1}[n]{1})+/.test(cadena2) || /([s]{1}[i]{1}[n]{1})+/.test(cadena2)){
+            alert('Contiene seno');
+            cadena2=cadena2.replaceAll("sen","SEN");
+            cadena2=cadena2.replaceAll("sin","SIN");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[o]{1}[s]{1})+/.test(cadena2)){
+           // alert('Contiene coseno');
+            cadena2=cadena2.replaceAll("cos","COS");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[o]{1}[t]{1})+/.test(cadena2) || /([c]{1}[t]{1}[g]{1})+/.test(cadena2)){
+           // alert('Contiene cotangente');
+            cadena2=cadena2.replaceAll("cot","COT");
+            cadena2=cadena2.replaceAll("ctg","CTG");
+            document.formulito.guarda2.value=1;
+          } 
+          if(/([t]{1}[a]{1}[n]{1})+/.test(cadena2) || /([t]{1}[g]{1})+/.test(cadena2)){
+            //alert('Contiene tangente');
+            cadena2=cadena2.replaceAll("tan","TAN");
+            cadena2=cadena2.replaceAll("tg","TG");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([s]{1}[e]{1}[c]{1})+/.test(cadena2)){
+            //alert('Contiene secante');
+            cadena2=cadena2.replaceAll("sec","SEC");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([c]{1}[s]{1}[c]{1})+/.test(cadena2)){
+          //alert('Contiene cosecante');
+            cadena2=cadena2.replaceAll("csc","CSC");
+            document.formulito.guarda2.value=1;
+          }
+          if(/([l]{1}[o]{1}[g]{1})+/.test(cadena2)){
+          //alert('Contiene logaritmo');
+            cadena2=cadena2.replaceAll("log","LOG");
+            document.formulito.guarda2.value=2;
+          }
+          if(/([l]{1}[n]{1})+/.test(cadena2)){
+          //alert('Contiene logaritmo natural');
+            cadena2=cadena2.replaceAll("ln","LN");
+            document.formulito.guarda2.value=2;
+            
+          }
+          if(/([e]{1}[\^]{1})+/.test(cadena2)){
+          //005E
+          //alert('Contiene el número de Euler o exponencial');
+            cadena2=cadena2.replaceAll("[e]{1}[\^]{1}","E^");
+            document.formulito.guarda2.value=1;
+          }
+          if((!(/([e]{1}[\^]{1})+/.test(cadena2)) && (/([a-z]+\^+\(+[0-9]+\.?[0-9]*\/+[0-9]+\.?[0-9]*)+/.test(cadena2) || /([a-z]+\^+\(+[0-9]+\.?[0-9]*)+/.test(cadena2)) )){
+            document.formulito.guarda2.value=2;
+          }
+        }
+        
+        aa2=composicion(cadena2,cadena1);
+        aa=composicion(cadena1,cadena2);
+        document.formulito.fog.value=aa;
+        document.formulito.gof.value=aa2;
+      }
+      function validaCompas(){
+        var f= document.formulito.distancia.value;
+        var g= document.formulito.tiempo.value;
+        var val1=0,val2=0;
+        if(f.length>0)
+          val1=1;
+        else{
+          alert('Su funcion f(x) está vacia');
+        }
+        if(g.length>0)
+          val2=1;
+        else{
+          alert('Su funcion g(x) está vacia');
+        }
+        if(val1===1 && val2===1){
+          compa();
+        }
+      }
+  body
+    .container
+      #splitlayout.splitlayout
+        .intro
+          .side.side-left
+            header.codropsheader.clearfix
+            .intro-content
+               center
+                a#compoo(href='#')
+                h1 Componer
+            .overlay
+          .side.side-right
+            .intro-content
+              center
+                a#graficaa(href='#')
+                h1 Graficar
+            .overlay
+        // /intro
+        .main
+          form.cbp-mc-form(role='form', name='formulito', action='haz', method="post")
+            .page.page-left
+              .page-inner
+                a#oc(href='/', title='Instrucciones')
+                label(for='distancia') f(x):
+                input#distancia(type='text', name='distancia', placeholder='x',onchange='cambia("distancia")')
+                label(for='tiempo') g(x):
+                input#tiempo(type='text', name='tiempo', placeholder='x',onchange='cambia("tiempo")')
+                br
+                center
+                  button#componer(type='button', onclick='cambia("distancia");cambia("tiempo");validaCompas()')
+                #input1
+                  label(for='fog') (f o g)(x):
+                  input#fog(name='fog' type='text', oninput='cambia("fog")', onchange='cambia("fog")', readonly)
+                  label(for='gof') (g o f)(x):
+                  input#gof(name='gof' type='text', oninput='cambia("gof")', onchange='cambia("gof")', readonly)
+                  input#guarda1(type='hidden',name='guarda1', value='0')
+                  input#guarda2(type='hidden',name='guarda2', value='0')              
+            .page.page-right
+              .page-inner
+                p(align='right')
+                  a#oc2(href='/', title='Instrucciones')
+                label(for='rango1') De:
+                input#rango1(type='text', name='rango1', placeholder='-1',onchange='cambia("rango1")')
+                label(for='rango2') Hasta:
+                input#rango2(type='text', name='rango2', placeholder='1',onchange='cambia("rango2")')
+                br
+                center
+                  button#graficar(type='button', onclick='cambia("rango1");cambia("rango2");valida()')
+        h1 
+           a.back.back-right(href='#', title='Volver') 
+           a.back.back-left(href='#', title='Volver')
+      // /splitlayout
+    // /container
+    script(src='js/classie.js')
+    script(src='js/cbpSplitLayout.js')

@@ -1,0 +1,74 @@
+html.no-js(lang='en')
+  head
+    title= Gráfica
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='jqwery/jquery-2.1.1.min.js')
+    script(type='text/javascript', src='javascripts/calcula.js')
+    script(type='text/javascript', src='javascripts/plotly-latest.min.js')
+    link(rel='stylesheet', href='bootstrap-3.1.1-dist/css/bootstrap.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script.
+      /*$(document).ready(function(){
+          $('#recarga').click(function(){
+             $('#tester').load('/'+'#tester');
+              var g1= $.parseJSON($('#guarda1').val());
+              var g2= $.parseJSON($('#guarda2').val());
+          });
+
+      });*/
+    script.
+      String.prototype.replaceAll = function (replaceThis, withThis) {
+          var re = new RegExp(replaceThis,"g"); 
+          return this.replace(re, withThis);
+        };
+      function composicion(funcion1,funcion2){
+        var devolver;
+        funcion2='('+funcion2+')';
+        devolver=funcion1.replaceAll("[a-z]",funcion2);
+        return devolver;
+      }
+      function f(x){
+        var r;
+        r=x;
+        return r;
+      } 
+      function derivada(x){
+        var h=0.000000000001;
+        var r;
+        r=(f(x+h)-f(x))/h;
+        return r;
+      }
+
+  body(bgcolor='#02D5C3')
+    #titulo
+      h1 Gráficas           
+      section#middle
+        center
+          div#x1
+            form#formita
+              input(type='hidden', name='y1' value='#{y1}')
+              input(type='hidden', name='x1' value='#{x1}')
+              input(type='hidden', name='y2' value='#{y2}')
+              input(type='hidden', name='x2' value='#{x2}')
+              input(type='hidden', name='dy1' value='#{dy1}')
+              input(type='hidden', name='dx1' value='#{dx1}')
+              input(type='hidden', name='dy2' value='#{dy2}')
+              input(type='hidden', name='dx2' value='#{dx2}')
+              input(type='hidden', name='compu' value='#{compu}')
+              input(type='hidden', name='incre' value='#{incre}')
+              input(type='hidden', name='ran1' value='#{ran1}')
+              input(type='hidden', name='ran2' value='#{ran2}')
+              input(type='hidden', name='fog' value='#{fog}')
+              input(type='hidden', name='gof' value='#{gof}')
+          
+          table.table.table-striped
+            thead
+              tr
+                th f(x)        
+                th x
+            tbody
+              for (var i = 0; i<y1.length; i++)
+                tr
+                  td = #{y1}
+                  td = #{x1}
+
