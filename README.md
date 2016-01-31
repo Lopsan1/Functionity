@@ -14,7 +14,7 @@
 #Uso:
 Abrir el símbolo de sistema, situarse en la carpeta raíz del proyecto y escribir npm start, en la línea de comando.
 
-#Librerias Extrernas:
+#Librerias Usadas:
 *Plotly.js
 
 *Node.js
