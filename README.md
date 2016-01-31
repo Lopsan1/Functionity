@@ -1,32 +1,27 @@
 # FUNCTIONITY
 
-#Características:
-*Añade los asteriscos en el caso de querer indicar multiplicación cuando se tienen dos paréntesis juntos o una variable y una constante junta.
+#Features:
+*Add the asterisks in case you want to indicate multiplication when you have two brackets together or variable and constant joint.
 
-*Se puede usar la notación científica.
+*You can use scientific notation.
 
-*Uso de constantes como pi y la constante de Euler al escribir P o E, según el caso.
+*Using constants like pi and Euler's constant writing P or E, as appropriate.
 
-*Guarda las gráficas como imágenes .png.
+*Save as .png graphic images.
 
-*Permite guardar y editar la gráfica en la nube con su cuenta de Plotly.
+*You can save and edit the graphics in the cloud with your account Plotly .
 
-#Uso:
-Abrir el símbolo de sistema, situarse en la carpeta raíz del proyecto y escribir npm start, en la línea de comando.
+#Install:
 
-Situese en su navegador y escriba la URL "localhost:3000"
+- $ bower install --save  https://github.com/Lopsan1/Functionity
 
-#Librerias Usadas:
+#Used Bookstores:
 *Plotly.js
 
 *Node.js
 
 *Codrops
 
-#Retroalimentación:
-Hazel
-hazelmsr@gmail.com
-
-#Versiones:
+#Versions:
 1.0
-Versión inicial
+Inicial Version
